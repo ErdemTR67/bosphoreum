@@ -1,0 +1,1560 @@
+/*
+ * Ajustements visuels de la marque Bosphoreum.
+ */
+
+.section::before,
+.final-cta::before {
+  display: none;
+}
+
+.section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.section__label::before {
+  width: 2.75rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.section__label::after {
+  width: 0.38rem;
+  height: 0.38rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+}
+
+.text-link {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto minmax(2.5rem, 5rem);
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.text-link::after {
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform-origin: left;
+  transition: transform 420ms var(--ease);
+}
+
+.text-link:hover {
+  padding-inline: 0;
+  background: transparent;
+}
+
+.text-link:hover::after {
+  transform: scaleX(0.38);
+}
+
+.crossing-axis,
+.service-crossing__passage,
+.work__crossing,
+.contact__crossing,
+.interior-hero__crossing {
+  display: grid;
+  grid-template-columns: auto minmax(2rem, 1fr) auto;
+  align-items: center;
+}
+
+.crossing-axis span,
+.service-crossing__passage span,
+.work__crossing span,
+.contact__crossing span,
+.interior-hero__crossing span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.crossing-axis i,
+.service-crossing__passage i,
+.work__crossing i,
+.contact__crossing i,
+.interior-hero__crossing i {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: center;
+}
+
+/* Header: a quiet connection indicator replaces the generic underline. */
+
+.site-header__nav {
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+}
+
+.site-header__nav a::after {
+  right: auto;
+  bottom: -0.5rem;
+  left: 50%;
+  width: 0.35rem;
+  height: 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, 0) scale(0);
+  transform-origin: center;
+}
+
+.site-header__nav a:hover::after,
+.site-header__nav a[aria-current="page"]::after {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.site-header__cta {
+  border: 0;
+  border-right: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+}
+
+/* Hero: the entrance remains strong; the way out becomes a passage. */
+
+.hero__next {
+  display: inline-grid;
+  width: auto;
+  grid-template-columns: clamp(3.5rem, 7vw, 7rem) auto;
+  gap: 1rem;
+  border: 0;
+}
+
+.hero__next span.hero__passage:first-child {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  border-radius: 0;
+  background: currentColor;
+  color: inherit;
+  transform: none;
+}
+
+.hero__next:hover span.hero__passage:first-child {
+  border: 0;
+  border-radius: 0;
+  background: currentColor;
+  color: inherit;
+  transform: none;
+}
+
+.hero__passage::before,
+.hero__passage::after {
+  position: absolute;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  content: "";
+  translate: 0 -50%;
+  transition: background 280ms ease;
+}
+
+.hero__passage::before {
+  left: 0;
+}
+
+.hero__passage::after {
+  right: 0;
+}
+
+.hero__next:hover .hero__passage::after {
+  background: currentColor;
+}
+
+/* Positioning: two shores, held together by a single vertical axis. */
+
+.positioning {
+  display: block;
+}
+
+.positioning > .section__label {
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.positioning__banks {
+  display: grid;
+  min-height: clamp(42rem, 74vw, 66rem);
+  grid-template-columns: minmax(0, 1.12fr) clamp(4rem, 8vw, 8rem) minmax(20rem, 0.72fr);
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.positioning__bank--statement {
+  align-self: start;
+}
+
+.positioning__bank--copy {
+  align-self: end;
+  padding-bottom: clamp(1rem, 6vw, 7rem);
+}
+
+.positioning .display-heading {
+  max-width: 9ch;
+  font-size: clamp(4rem, 7.5vw, 8rem);
+}
+
+.positioning__copy {
+  display: block;
+  margin-top: 0;
+}
+
+.positioning__copy > div {
+  max-width: 34rem;
+  margin-left: 0;
+}
+
+.positioning__copy p {
+  font-size: clamp(1.1rem, 1.65vw, 1.45rem);
+  line-height: 1.42;
+}
+
+.positioning__copy .text-link {
+  margin-top: 3rem;
+}
+
+.crossing-axis--positioning {
+  width: 1rem;
+  grid-template: auto minmax(3rem, 1fr) auto / 1fr;
+  justify-items: center;
+  justify-self: center;
+}
+
+.crossing-axis--positioning i {
+  width: 1px;
+  height: 100%;
+}
+
+/* Services: every row physically connects a need to a response. */
+
+.section--services {
+  background: var(--color-mist);
+}
+
+.section--services .section__heading {
+  grid-template-columns: minmax(7rem, 0.32fr) minmax(0, 1.1fr) minmax(17rem, 0.5fr);
+}
+
+.services-list {
+  position: relative;
+  display: grid;
+  gap: clamp(4rem, 8vw, 8rem);
+}
+
+.services-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgb(0 0 0 / 24%);
+  content: "";
+}
+
+.services-list li.service-crossing {
+  position: relative;
+  display: grid;
+  min-height: clamp(23rem, 31vw, 31rem);
+  grid-template-columns: minmax(0, 1fr) clamp(7rem, 15vw, 14rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.services-list li.service-crossing:hover {
+  padding-inline: 0;
+  background: transparent;
+}
+
+.service-crossing__need,
+.service-crossing__response {
+  position: relative;
+  z-index: 1;
+}
+
+.service-crossing__need {
+  align-self: start;
+  padding-top: 2rem;
+}
+
+.service-crossing__response {
+  align-self: end;
+  padding-bottom: 2rem;
+}
+
+.service-crossing:nth-child(even) .service-crossing__need {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.service-crossing:nth-child(even) .service-crossing__passage {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.service-crossing:nth-child(even) .service-crossing__response {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.service-crossing__need > span,
+.service-crossing__response > span {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.services-list__purpose {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.services-list h3 {
+  max-width: 11ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.8rem, 4.8vw, 5.2rem);
+  line-height: 0.88;
+}
+
+.services-list li:hover h3 {
+  transform: none;
+}
+
+.services-list__description {
+  max-width: 31rem;
+  margin-bottom: 2rem;
+}
+
+.service-crossing__link {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: background-size 320ms var(--ease);
+}
+
+.service-crossing__link:hover {
+  background-size: 35% 1px;
+}
+
+.service-crossing__passage {
+  z-index: 2;
+}
+
+.service-crossing__passage span {
+  background: var(--color-mist);
+}
+
+.service-crossing:hover .service-crossing__passage span:last-child,
+.service-crossing:nth-child(even):hover .service-crossing__passage span:first-child {
+  background: var(--color-black);
+}
+
+/* Approach: one route, three different positions on it. */
+
+.method-list.method-path {
+  position: relative;
+  display: grid;
+  min-height: clamp(40rem, 55vw, 52rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 7rem);
+  border: 0;
+}
+
+.method-path__line {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.method-path__line path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.method-list.method-path li {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.method-list.method-path li:first-of-type {
+  align-self: end;
+  padding: 0 2rem 3rem 0;
+}
+
+.method-list.method-path li:nth-of-type(2) {
+  align-self: start;
+  padding: 4rem 1rem 0;
+}
+
+.method-list.method-path li:nth-of-type(3) {
+  align-self: start;
+  padding: 4rem 0 0 2rem;
+}
+
+.method-path__marker {
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: var(--color-ink);
+  transition: background 280ms ease;
+}
+
+.method-path li:hover .method-path__marker {
+  background: var(--color-white);
+}
+
+.method-list.method-path h3 {
+  max-width: 9ch;
+  font-size: clamp(2.7rem, 4.6vw, 5rem);
+  line-height: 0.9;
+}
+
+.method-list.method-path li:hover h3 {
+  transform: none;
+}
+
+/* Work: the project itself becomes the crossing point. */
+
+.work {
+  position: relative;
+  grid-template-columns: minmax(0, 0.85fr) minmax(24rem, 0.72fr);
+  gap: clamp(6rem, 13vw, 16rem);
+}
+
+.work::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 54%;
+  width: 1px;
+  background: rgb(0 0 0 / 38%);
+  content: "";
+}
+
+.work__project {
+  min-height: 42rem;
+  padding: 1.5rem 0 2rem;
+  border: 0;
+}
+
+.work__project:hover {
+  padding-inline: 0;
+  background: transparent;
+}
+
+.work__project h3 {
+  font-size: clamp(4rem, 7vw, 7.5rem);
+}
+
+.work__crossing {
+  width: min(100%, 26rem);
+  margin: 2.5rem 0;
+}
+
+.work__project:hover .work__crossing span:last-child {
+  background: var(--color-black);
+}
+
+/* About: activity and technology meet before the personal voice. */
+
+.about {
+  grid-template-columns: minmax(0, 0.95fr) clamp(5rem, 10vw, 10rem) minmax(19rem, 0.5fr);
+  gap: clamp(2rem, 6vw, 7rem);
+}
+
+.about__connection {
+  display: grid;
+  min-height: 42rem;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about__connection i {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: currentColor;
+}
+
+.about__connection span {
+  writing-mode: vertical-rl;
+}
+
+.about__copy {
+  border: 0;
+}
+
+.about__copy .about__location {
+  position: relative;
+  border: 0;
+}
+
+.about__copy .about__location::before {
+  position: absolute;
+  top: 0;
+  left: -3rem;
+  width: 3rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+/* Contact: deliberately direct, with one final crossing. */
+
+.contact {
+  position: relative;
+}
+
+.contact__body {
+  grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.62fr);
+  gap: clamp(7rem, 14vw, 16rem);
+}
+
+.contact__copy {
+  border: 0;
+}
+
+.contact__crossing {
+  width: min(100%, 46rem);
+  margin-top: clamp(6rem, 10vw, 10rem);
+  margin-left: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-bottom-color: rgb(255 255 255 / 58%);
+  transition: border-color 220ms ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: var(--color-white);
+  outline-offset: 0.15rem;
+}
+
+.final-cta__inner {
+  grid-template-columns: minmax(13rem, 0.36fr) minmax(0, 1.2fr);
+}
+
+.final-cta a {
+  border: 0;
+}
+
+.final-cta a:hover {
+  padding-inline: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.final-cta__passage {
+  position: relative;
+  display: block;
+  width: clamp(5rem, 12vw, 12rem);
+  height: 1px;
+  background: currentColor;
+}
+
+.final-cta__passage::before,
+.final-cta__passage::after {
+  position: absolute;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: var(--color-primary);
+  content: "";
+  translate: 0 -50%;
+}
+
+.final-cta__passage::before {
+  left: 0;
+}
+
+.final-cta__passage::after {
+  right: 0;
+}
+
+.final-cta__passage i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: currentColor;
+  translate: 0 -50%;
+  transition: left 600ms var(--ease);
+}
+
+.final-cta a:hover .final-cta__passage i {
+  left: calc(100% - 0.7rem);
+  transform: none;
+}
+
+/* Interior pages inherit the crossing language without repeating home layouts. */
+
+.interior-hero__inner {
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.55fr);
+  grid-template-areas:
+    "meta meta"
+    "title intro";
+  gap: clamp(4rem, 9vw, 10rem) clamp(4rem, 10vw, 12rem);
+}
+
+.interior-hero__meta {
+  grid-area: meta;
+  display: grid;
+  grid-template-columns: auto minmax(5rem, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: 0;
+  border: 0;
+}
+
+.interior-hero__crossing {
+  width: 100%;
+}
+
+.interior-hero__meta > p {
+  align-self: center;
+}
+
+.interior-hero h1 {
+  grid-area: title;
+}
+
+.interior-hero__intro {
+  grid-area: intro;
+  align-self: end;
+}
+
+.route-services-list {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.route-services-list li {
+  position: relative;
+  display: grid;
+  min-height: 14rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: clamp(2rem, 4vw, 4rem) 0;
+  border: 0;
+  background: transparent;
+}
+
+.route-services-list li:nth-child(even) {
+  margin-left: clamp(2rem, 10vw, 12rem);
+}
+
+.route-services-list li:nth-child(odd) {
+  margin-right: clamp(2rem, 10vw, 12rem);
+}
+
+.route-services-list li::before {
+  position: absolute;
+  top: 50%;
+  width: clamp(2rem, 10vw, 12rem);
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.route-services-list li:nth-child(odd)::before {
+  right: calc(clamp(2rem, 10vw, 12rem) * -1);
+}
+
+.route-services-list li:nth-child(even)::before {
+  left: calc(clamp(2rem, 10vw, 12rem) * -1);
+}
+
+.route-services-list > li > a {
+  width: auto;
+  height: auto;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.route-services-list > li:hover > a {
+  background: transparent;
+  color: inherit;
+}
+
+.route-method-list {
+  position: relative;
+  display: grid;
+  gap: 0;
+  padding-left: clamp(3rem, 8vw, 8rem);
+}
+
+.route-method-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.route-method-list li {
+  position: relative;
+  grid-template-columns: minmax(12rem, 0.65fr) minmax(18rem, 1fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  padding: clamp(4rem, 8vw, 8rem) 0;
+  border: 0;
+}
+
+.route-method-list li::before {
+  position: absolute;
+  top: 50%;
+  left: calc(clamp(3rem, 8vw, 8rem) * -1);
+  width: clamp(3rem, 8vw, 8rem);
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.route-method-list > li > span {
+  display: none;
+}
+
+.service-detail {
+  position: relative;
+}
+
+.service-detail::before,
+.route-about::before,
+.route-contact::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0.4;
+}
+
+/* Motion: banks converge, crossings are drawn, and the route is traced. */
+
+@supports (animation-timeline: view()) {
+  .section__label,
+  .section__title,
+  .section__intro,
+  .positioning__copy,
+  .work__intro,
+  .about__copy,
+  .contact__copy,
+  .contact-form,
+  .final-cta__inner > p,
+  .final-cta h2,
+  .final-cta a,
+  .route-services-list li,
+  .route-method-list li,
+  .service-detail,
+  .route-project,
+  .route-about,
+  .route-contact,
+  .positioning .display-heading,
+  .work__project,
+  .services-list li,
+  .method-list li {
+    animation: none;
+  }
+}
+
+.has-scroll-motion [data-scroll-reveal] {
+  opacity: 1;
+  clip-path: none;
+  filter: none;
+  transform: none;
+  transition: none;
+}
+
+.has-scroll-motion [data-scroll-reveal="banks"] > :not(.crossing-axis, .about__connection) {
+  opacity: 0.2;
+  transition:
+    opacity 800ms var(--ease),
+    transform 1100ms var(--ease);
+}
+
+.has-scroll-motion [data-scroll-reveal="banks"] > :first-child {
+  transform: translateX(-2.5rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="banks"] > :last-child {
+  transform: translateX(2.5rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="banks"].is-scroll-visible > :not(.crossing-axis, .about__connection) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__passage i,
+.has-scroll-motion [data-scroll-reveal="crossing"] .work__crossing i,
+.has-scroll-motion [data-scroll-reveal="crossing"] .contact__crossing i {
+  transform: scaleX(0);
+  transition: transform 1000ms var(--ease);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__need,
+.has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__response {
+  opacity: 0.15;
+  transition:
+    opacity 700ms var(--ease),
+    transform 1000ms var(--ease);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__need {
+  transform: translateX(-2rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__response {
+  transform: translateX(2rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"]:nth-child(even) .service-crossing__need {
+  transform: translateX(2rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"]:nth-child(even) .service-crossing__response {
+  transform: translateX(-2rem);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"].is-scroll-visible .service-crossing__passage i {
+  transform: scaleX(1);
+}
+
+.has-scroll-motion [data-scroll-reveal="crossing"].is-scroll-visible .service-crossing__need,
+.has-scroll-motion [data-scroll-reveal="crossing"].is-scroll-visible .service-crossing__response {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.has-scroll-motion [data-scroll-reveal="path"] .method-path__line path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1800ms var(--ease);
+}
+
+.has-scroll-motion [data-scroll-reveal="path"] .method-path__marker {
+  opacity: 0;
+  transition:
+    opacity 350ms ease,
+    background 280ms ease;
+}
+
+.has-scroll-motion [data-scroll-reveal="path"].is-scroll-visible .method-path__line path {
+  stroke-dashoffset: 0;
+}
+
+.has-scroll-motion [data-scroll-reveal="path"].is-scroll-visible .method-path__marker {
+  opacity: 1;
+}
+
+.has-scroll-motion [data-scroll-reveal="path"].is-scroll-visible li:nth-of-type(2) .method-path__marker {
+  transition-delay: 480ms;
+}
+
+.has-scroll-motion [data-scroll-reveal="path"].is-scroll-visible li:nth-of-type(3) .method-path__marker {
+  transition-delay: 950ms;
+}
+
+/* Mobile navigation becomes a quiet two-bank index rather than a giant type wall. */
+
+.mobile-menu__panel nav {
+  position: relative;
+}
+
+.mobile-menu__panel nav::before {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 50%;
+  width: 1px;
+  background: rgb(255 255 255 / 36%);
+  content: "";
+}
+
+.mobile-menu__links li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.75rem 0;
+  border: 0;
+}
+
+.mobile-menu__links li:nth-child(odd) a {
+  grid-column: 1;
+  justify-self: end;
+  padding-right: 1.5rem;
+  text-align: right;
+}
+
+.mobile-menu__links li:nth-child(even) a {
+  grid-column: 2;
+  padding-left: 1.5rem;
+}
+
+.mobile-menu__links a {
+  position: relative;
+  width: fit-content;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.mobile-menu__links a::before {
+  position: absolute;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+  translate: 0 -50%;
+}
+
+.mobile-menu__links li:nth-child(odd) a::before {
+  right: -0.23rem;
+}
+
+.mobile-menu__links li:nth-child(even) a::before {
+  left: -0.23rem;
+}
+
+.mobile-menu__links a[aria-current="page"]::after {
+  display: none;
+}
+
+.mobile-menu__links a[aria-current="page"]::before {
+  background: var(--color-primary);
+}
+
+.mobile-menu__cta {
+  border-bottom: 0;
+}
+
+.mobile-menu__passage {
+  width: 5rem;
+  height: 1px;
+  background: currentColor;
+}
+
+@media (max-width: 1040px) {
+  .positioning__banks {
+    grid-template-columns: minmax(0, 1fr) 4rem minmax(18rem, 0.72fr);
+  }
+
+  .services-list li.service-crossing {
+    grid-template-columns: minmax(0, 1fr) 6rem minmax(0, 1fr);
+  }
+
+  .about {
+    grid-template-columns: minmax(0, 1fr) 4rem minmax(18rem, 0.62fr);
+  }
+
+  .contact__body {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .section__label::before {
+    width: 1.75rem;
+  }
+
+  .section--services .section__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .positioning__banks {
+    min-height: 0;
+    grid-template: auto 5rem auto / 1fr;
+    gap: 2.5rem;
+  }
+
+  .positioning__bank--copy {
+    width: min(100%, 34rem);
+    justify-self: end;
+    padding: 0;
+  }
+
+  .crossing-axis--positioning {
+    width: 100%;
+    grid-template: 1fr / auto 1fr auto;
+  }
+
+  .crossing-axis--positioning i {
+    width: 100%;
+    height: 1px;
+  }
+
+  .services-list {
+    gap: 7rem;
+  }
+
+  .services-list::before {
+    left: 1rem;
+  }
+
+  .services-list li.service-crossing,
+  .service-crossing:nth-child(even) {
+    min-height: 0;
+    grid-template: auto 5rem auto / minmax(0, 1fr);
+    gap: 2rem;
+    padding-left: 3rem;
+  }
+
+  .service-crossing:nth-child(even) .service-crossing__need,
+  .service-crossing:nth-child(even) .service-crossing__passage,
+  .service-crossing:nth-child(even) .service-crossing__response,
+  .service-crossing__need,
+  .service-crossing__passage,
+  .service-crossing__response {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .services-list .service-crossing > .service-crossing__need,
+  .services-list .service-crossing > .service-crossing__passage,
+  .services-list .service-crossing > .service-crossing__response {
+    grid-column: 1;
+    grid-row: auto;
+    border: 0;
+  }
+
+  .service-crossing__need,
+  .service-crossing__response {
+    align-self: auto;
+    padding: 0;
+  }
+
+  .service-crossing__passage {
+    width: 1rem;
+    min-height: 5rem;
+    grid-template: auto 1fr auto / 1fr;
+    justify-items: center;
+  }
+
+  .service-crossing__passage i {
+    width: 1px;
+    height: 100%;
+  }
+
+  .service-crossing__need > span,
+  .service-crossing__response > span {
+    margin-bottom: 0.8rem;
+  }
+
+  .services-list__purpose {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .services-list h3 {
+    font-size: clamp(2.8rem, 9.5vw, 4.5rem);
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .method-list.method-path {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    padding-left: 3rem;
+  }
+
+  .method-path::before {
+    position: absolute;
+    top: 0.4rem;
+    bottom: 0;
+    left: 0.4rem;
+    width: 1px;
+    background: currentColor;
+    content: "";
+  }
+
+  .method-path__line {
+    display: none;
+  }
+
+  .method-list.method-path li:first-of-type,
+  .method-list.method-path li:nth-of-type(2),
+  .method-list.method-path li:nth-of-type(3) {
+    padding: 0;
+  }
+
+  .method-path__marker {
+    position: absolute;
+    top: 0;
+    left: -3rem;
+    margin: 0;
+  }
+
+  .work {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+
+  .work::before {
+    top: 46%;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+
+  .work__project {
+    min-height: 32rem;
+  }
+
+  .about {
+    grid-template: auto 5rem auto / 1fr;
+    gap: 3rem;
+  }
+
+  .about__connection {
+    min-height: 0;
+    grid-template: 1fr / auto 1fr auto;
+    gap: 1rem;
+  }
+
+  .about__connection i {
+    width: 100%;
+    height: 1px;
+  }
+
+  .about__connection span {
+    writing-mode: horizontal-tb;
+  }
+
+  .contact__body {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .contact__crossing {
+    margin-top: 6rem;
+  }
+
+  .interior-hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "meta"
+      "title"
+      "intro";
+    gap: 3.5rem;
+  }
+
+  .route-services-list li:nth-child(odd),
+  .route-services-list li:nth-child(even) {
+    margin: 0 0 0 2rem;
+  }
+
+  .route-services-list li:nth-child(odd)::before,
+  .route-services-list li:nth-child(even)::before {
+    right: auto;
+    left: -2rem;
+    width: 2rem;
+  }
+
+  .route-method-list li {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .has-scroll-motion [data-scroll-reveal="banks"] > :not(.crossing-axis, .about__connection),
+  .has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__need,
+  .has-scroll-motion [data-scroll-reveal="crossing"] .service-crossing__response {
+    transform: none !important;
+  }
+
+  .positioning > .section__label {
+    margin-bottom: 4rem;
+  }
+
+  .positioning .display-heading {
+    font-size: clamp(3.3rem, 14vw, 4.8rem);
+  }
+
+  .positioning__banks {
+    gap: 1.5rem;
+  }
+
+  .services-list {
+    gap: 6rem;
+  }
+
+  .services-list li.service-crossing {
+    padding-left: 2.5rem;
+  }
+
+  .services-list::before {
+    left: 0.75rem;
+  }
+
+  .method-list.method-path {
+    padding-left: 2.5rem;
+  }
+
+  .method-path__marker {
+    left: -2.5rem;
+  }
+
+  .method-list.method-path h3 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .work::before {
+    top: 43%;
+  }
+
+  .about__copy .about__location::before {
+    left: 0;
+  }
+
+  .final-cta__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta a {
+    gap: 1.5rem;
+  }
+
+  .final-cta__passage {
+    width: 5rem;
+  }
+
+  .interior-hero__meta {
+    grid-template-columns: auto minmax(3rem, 1fr);
+    gap: 1.5rem;
+  }
+
+  .route-services-list li {
+    min-height: 12rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .route-services-list > li > a {
+    justify-self: start;
+  }
+
+  .mobile-menu__panel nav {
+    padding-block: 5rem 3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .services-list h3 {
+    font-size: 2.25rem;
+  }
+
+  .work__project h3 {
+    font-size: 3.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-scroll-motion [data-scroll-reveal] *,
+  .has-scroll-motion [data-scroll-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .has-scroll-motion [data-scroll-reveal="path"] .method-path__line path {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* BSRM Booking: the reservation flow becomes a sequence of connected states. */
+
+.service-detail__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem clamp(2rem, 5vw, 5rem);
+}
+
+.booking-opening__inner {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 1fr);
+  gap: clamp(4rem, 8vw, 9rem);
+}
+
+.booking-opening__statement h2,
+.booking-section-heading h2,
+.booking-trust h2 {
+  margin-bottom: 0;
+  font-size: clamp(4rem, 7vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.booking-opening__statement > p {
+  max-width: 34rem;
+  margin: clamp(2rem, 4vw, 4rem) 0 0 auto;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.36;
+}
+
+.booking-outcomes {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(3rem, 7vw, 7rem) 0 0;
+  padding: 0;
+  border-top: var(--line);
+  list-style: none;
+}
+
+.booking-outcomes li {
+  display: grid;
+  min-height: 24rem;
+  align-content: space-between;
+  padding: 1.5rem clamp(1.5rem, 3vw, 3rem) 2rem;
+  border-right: var(--line);
+}
+
+.booking-outcomes li:first-child {
+  padding-left: 0;
+}
+
+.booking-outcomes li:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.booking-outcomes li > span,
+.booking-system__steps > li > span {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.booking-outcomes h3 {
+  max-width: 10ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.3rem, 3.7vw, 4.2rem);
+  font-weight: 400;
+  line-height: 0.92;
+}
+
+.booking-outcomes p {
+  max-width: 25rem;
+  margin-bottom: 0;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.42;
+}
+
+.booking-section-heading {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 1fr);
+  gap: clamp(4rem, 8vw, 9rem);
+  margin-bottom: clamp(5rem, 9vw, 9rem);
+}
+
+.booking-section-heading h2 {
+  max-width: 12ch;
+}
+
+.booking-section-heading--compact h2 {
+  max-width: 10ch;
+}
+
+.booking-system__steps {
+  position: relative;
+  display: grid;
+  margin: 0;
+  padding: 0 0 0 clamp(3rem, 7vw, 7rem);
+  list-style: none;
+}
+
+.booking-system__steps::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.booking-system__steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(3rem, 0.18fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  border-top: var(--line);
+}
+
+.booking-system__steps li:nth-child(2) {
+  margin-left: clamp(2rem, 8vw, 9rem);
+}
+
+.booking-system__steps li:nth-child(3) {
+  margin-left: clamp(4rem, 16vw, 18rem);
+  border-bottom: var(--line);
+}
+
+.booking-system__steps li::before {
+  position: absolute;
+  top: -1px;
+  right: 100%;
+  width: clamp(3rem, 7vw, 7rem);
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.booking-system__steps h3 {
+  max-width: 13ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-weight: 400;
+  line-height: 0.92;
+}
+
+.booking-system__steps p {
+  max-width: 42rem;
+  margin-bottom: 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.booking-audiences__banks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8rem, 18vw, 20rem);
+}
+
+.booking-audiences__bank {
+  position: relative;
+}
+
+.booking-audiences__bank article {
+  display: flex;
+  min-height: 30rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 1.5rem;
+  border-top: var(--line);
+  border-bottom: var(--line);
+}
+
+.booking-audiences__bank article > p:first-child {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.booking-audiences__bank h3 {
+  max-width: 9ch;
+  margin-bottom: 0;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.booking-audiences__bank article > p:last-child {
+  max-width: 31rem;
+  margin-bottom: 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.42;
+}
+
+.booking-audiences__crossing {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 2rem);
+  display: grid;
+  width: calc(clamp(8rem, 18vw, 20rem) - 4rem);
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.booking-audiences__crossing span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.booking-audiences__crossing i {
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+.booking-trust__inner {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 1fr);
+  gap: clamp(4rem, 8vw, 9rem);
+}
+
+.booking-trust h2 {
+  max-width: 11ch;
+}
+
+.booking-trust h2 + p {
+  max-width: 42rem;
+  margin: clamp(2.5rem, 5vw, 5rem) 0 2.5rem auto;
+  font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+  line-height: 1.42;
+}
